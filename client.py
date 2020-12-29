@@ -14,7 +14,8 @@ colors = [Fore.BLUE, Fore.CYAN, Fore.GREEN, Fore.LIGHTBLACK_EX,
 
 client_color = random.choice(colors)
 
-SERVER_HOST = "127.0.0.1"
+#SERVER_HOST = "127.0.0.1"
+SERVER_HOST = input("Server IP: ")
 SERVER_PORT = 5002
 seperator_token = "<SEP>"
 
