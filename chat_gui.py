@@ -31,15 +31,16 @@ name  = input("Enter your name: ")
 def listening_for_messages():
     while True:
         message = s.recv(1024).decode()
-        print("\n" + message)
-        window['OUTPUT1'].update(message)
+        print(message + "\n")
 
 t = Thread(target=listening_for_messages)
 t.daemon = True
 t.start()
 
+
+
 layout=[
-    [sg.Multiline(size=(50,18), key = 'OUTPUT1')],
+    [sg.Output(size=(50,18), key = 'OUTPUT')],
     [sg.Text(size=(0,0)), sg.InputText(), sg.OK()]
 ]
 
@@ -47,7 +48,7 @@ window = sg.Window("Chat", layout, size=(400,350))
 
 while True:
     event, values = window.read()
-
+    
     if event == sg.WIN_CLOSED or event =="Cancel":
         break
     if event == "OK":
