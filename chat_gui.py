@@ -1,10 +1,14 @@
 import PySimpleGUI as sg 
-
 import socket
 import random
 from threading import Thread
 from datetime import datetime
 from colorama import Fore, init, Back
+import pickle
+import os
+
+pickle_in = open("server", "rb")
+server_info = pickle.load(pickle_in)
 
 init()
 
@@ -16,8 +20,7 @@ colors = [Fore.BLUE, Fore.CYAN, Fore.GREEN, Fore.LIGHTBLACK_EX,
 
 client_color = random.choice(colors)
 
-#SERVER_HOST = "127.0.0.1"
-SERVER_HOST = input("Server IP: ")
+SERVER_HOST = server_info[0]
 SERVER_PORT = 5002
 seperator_token = "<SEP>"
 
@@ -26,22 +29,20 @@ print(f"[*] Connecting to {SERVER_HOST}:{SERVER_PORT}...")
 s.connect((SERVER_HOST, SERVER_PORT))
 print("[+] Connected.")
 
-name  = input("Enter your name: ")
+name  = server_info[1]
 
 def listening_for_messages():
     while True:
         message = s.recv(1024).decode()
         print(message + "\n")
-
+    
 t = Thread(target=listening_for_messages)
 t.daemon = True
 t.start()
 
-
-
 layout=[
     [sg.Output(size=(50,18), key = 'OUTPUT')],
-    [sg.Text(size=(0,0)), sg.InputText(), sg.OK()]
+    [sg.Text(name,size=(0,0)), sg.InputText(), sg.OK()]
 ]
 
 window = sg.Window("Chat", layout, size=(400,350))
@@ -51,8 +52,6 @@ while True:
     
     if event == sg.WIN_CLOSED or event =="Cancel":
         break
-    if event == "OK":
-        chat_message = values[0]
     
     to_send = values[0]
     if to_send.lower() == 'q':
