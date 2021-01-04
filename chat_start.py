@@ -19,7 +19,7 @@ while True:
     event, values = window.read()
 
     if event == "Change Login Info":
-        import chat_gui_setup
+        import chat_setup
     
     if event == "Join Chat":
         import chat_gui
