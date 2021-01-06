@@ -7,7 +7,7 @@ from colorama import Fore, init, Back
 import pickle
 import os
 
-pickle_in = open("server", "rb")
+pickle_in = open("server.dat", "rb")
 server_info = pickle.load(pickle_in)
 
 init()
