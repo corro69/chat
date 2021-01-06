@@ -18,7 +18,7 @@ window = sg.Window("Chat Start", layout, size=(250,150))
 while True:
     event, values = window.read()
 
-    if event == "Change Login Info":
+    if event == "Change Server IP and Chat ID":
         import chat_setup
     
     if event == "Join Chat":
