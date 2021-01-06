@@ -5,7 +5,7 @@ from threading import Thread
 
 layout=[
     [sg.Text("Sever IP"), sg.InputText(), sg.OK()],
-    [sg.Text("name"), sg.InputText(), sg.OK()],
+    [sg.Text("Name"), sg.InputText(), sg.OK()],
     [sg.Output(size=(50,5),key = 'OUTPUT')],
     [sg.Button("Done")]
 ]
@@ -20,7 +20,7 @@ while True:
         x = values[0]
         y = values[1]
         server_info = (x,y)
-        pickle_out = open("server","wb")
+        pickle_out = open("server.dat","wb")
         pickle.dump(server_info, pickle_out)
         pickle_out.close()
 
