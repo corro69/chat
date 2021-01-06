@@ -4,7 +4,7 @@ import socket
 from threading import Thread
 
 layout=[
-    [sg.Text("Sever IP"), sg.InputText(), sg.OK()],
+    [sg.Text("Server IP"), sg.InputText(), sg.OK()],
     [sg.Text("Name"), sg.InputText(), sg.OK()],
     [sg.Output(size=(50,5),key = 'OUTPUT')],
     [sg.Button("Done")]
