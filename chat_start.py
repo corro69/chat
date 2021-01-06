@@ -3,11 +3,11 @@ import pickle
 import socket
 from threading import Thread
 
-pickle_in = open("server", "rb")
+pickle_in = open("server.dat", "rb")
 server_info = pickle.load(pickle_in)
 
 layout=[
-    [sg.Text("Server:  "+ server_info[0])],
+    [sg.Text("Server:    "+ server_info[0])],
     [sg.Text("Chat Name:  "+ server_info[1])],
     [sg.Button(("Change Login Info"),size=(50,0))],
     [sg.Button(("Join Chat"),size=(50,0))]
