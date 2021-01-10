@@ -55,7 +55,7 @@ t.daemon = True
 t.start()
 
 layout=[
-    [sg.Output(size=(50,18), key = 'OUTPUT')],
+    [sg.Output(size=(50,15), key = 'OUTPUT')],
     [sg.Text(name,size=(0,0)), sg.InputText(do_not_clear=False), sg.OK()]
 ]
 
