@@ -8,7 +8,7 @@ server_info = pickle.load(pickle_in)
 
 layout=[
     [sg.Text("Server:    "+ server_info[0])],
-    [sg.Text("Chat Name:  "+ server_info[1])],
+    [sg.Text("Chat ID:  "+ server_info[1])],
     [sg.Button(("Change Server IP and Chat ID"),size=(50,0))],
     [sg.Button(("Join Chat"),size=(50,0))]
 ]
@@ -20,9 +20,10 @@ while True:
 
     if event == "Change Server IP and Chat ID":
         import chat_setup
+        window.close()
     
     if event == "Join Chat":
-        import chat_gui
+        import chat_gui_encryption
         window.close()
 
     if event == sg.WIN_CLOSED or event =="Cancel":
