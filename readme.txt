@@ -5,7 +5,7 @@ required packages:
   pickle
   socket
   
-  Chat server and app with encryption
+  Chat server and client app with encryption
   
 To start the chat server execute : "python3 server.py" from a terminal in the chat directory. 
 
