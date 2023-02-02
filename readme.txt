@@ -1,9 +1,8 @@
 required packages:
   pyhon3
-  pytomplegui
+  pysimplegui
   colorama
-  pickle
-  socket
+  pycrypto
   
   Chat server and client app with encryption
   
