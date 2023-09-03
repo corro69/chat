@@ -23,7 +23,8 @@ while True:
         window.close()
     
     if event == "Join Chat":
-        import chat_gui_encryption
+       # import chat_gui_encryption
+        import chat_gui
         window.close()
 
     if event == sg.WIN_CLOSED or event =="Cancel":

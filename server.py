@@ -12,15 +12,19 @@ s.listen(5)
 print(f"[*] Listening as {SERVER_HOST}:{SERVER_PORT}")
 
 def listen_for_client(cs):
-    while True:
+    connected = True
+    while connected:
         try:
             msg = cs.recv(1024).decode()
         except Exception as e:
             print(f"[!] Error: {e}")
-            client_sockets.remove(cs)
+         #   client_sockets.remove(cs)
+            break
+        if msg == '!EXIT':
+         #   client_sockets.remove(cs)
+            break
         else:
             msg = msg.replace(seperator_token, ": ")
-        for client_socket in client_sockets:
             client_socket.send(msg.encode())
 
 while True:
@@ -31,6 +35,6 @@ while True:
     t.daemon = True
     t.start()
 
-for cs in client_sockets:
-    cs.close()
-s.close()
+#for cs in client_sockets:
+#    cs.close()
+#cs.close()
